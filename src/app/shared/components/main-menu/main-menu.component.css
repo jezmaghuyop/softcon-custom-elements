@@ -1,0 +1,13 @@
+.main-menu-container {
+    background-color: #f2ebe6;
+    color: #373baa !important;
+}
+
+a {
+    color: #373baa !important;
+}
+
+a.active-link,
+a:hover {
+    font-weight: 700;
+}

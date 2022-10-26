@@ -1,0 +1,20 @@
+<table class="min-w-full divide-y divide-gray-300 shadow-lg">
+    <thead [ngClass]="tableHeaderClass" *ngIf="headers">
+      <tr>                  
+        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900" *ngFor="let header of headers">{{header}}</th>
+        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900" *ngIf="actions.length > 0">Action</th>                
+      </tr>
+    </thead>
+    <tbody class="bg-white" *ngIf="bodyData">
+      <ng-container *ngFor="let data of bodyData">
+          <tr>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500" *ngFor="let key of dataKeys(data)">{{data[key]}}</td>
+
+              <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6" *ngIf="actions.length > 0">
+                  <button type="button" class="mr-5 text-indigo-600 hover:text-indigo-900" *ngFor="let data of actions" (click)="triggerAction(data.action)">{{data.name}}</button>
+              </td>
+          </tr>
+      </ng-container>          
+  
+    </tbody>
+  </table>
